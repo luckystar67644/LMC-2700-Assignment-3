@@ -1,33 +1,68 @@
 let allMovies = [];
 
 //Define a movie class with parameters title (string), rating (number) and haveWatched (boolean)
-class Movie {
-
+class Movie
+{
+    constructor (title, rating, haveWatched)
+    {
+    this.title = title;
+    this.rating = rating;
+    this.haveWatched = haveWatched;
+    }
 }
 
 //add a movie OBJECT to the allMovies array
-let addMovie = (movie) => {
-
+let addMovie = (movie) => 
+{
+    //let movie= new Movie();
+    allMovies.push(movie);
+    console.log("A new movie is added")
 }
 
 //iterate through all elements of allMovies array
 //print out to console in a correct format
-//print out the total number of movies in allMovies array
-let printMovies = () => {
-
+//print out the total number of movies in allMovies array (Spiderman, rating of 3, havewatched: false)
+let printMovies = () => 
+{
+    console.log("Printing all movies....");
+    for (let i = 0; i < allMovies.length; i++) 
+    {
+        console.log(allMovies[i].title+ ", " + "rating of " + allMovies[i].rating + ", havewatched: "+ allMovies[i].haveWatched);
+        
+    }
+    console.log("You have " + allMovies.length +" movies in total");
 }
 
 
 //print out to console, only the movies that has a rating higher than rating(argument)
 //print out the total number of matches
-let highRatings = (rating) => {
-
+let highRatings = (rating) => 
+{
+    let total= 0;
+    console.log("Printing movie that has a rating higher than " + rating);
+    for (let i = 0; i < allMovies.length; i++) {
+        if (allMovies[i].rating > rating)
+        {
+            console.log(allMovies[i].title+ " has a rating of " + allMovies[i].rating);
+            total++;
+        }
+    }
+    console.log("In total, there are "+ total + " matches");
 }
 
 
 //Toggle the 'haveWatched' property of the specified movie 
-let changeWatched = (title) => {
-
+let changeWatched = (title) => 
+{
+    for (let i = 0; i < allMovies.length; i++) 
+    {
+        if (allMovies[i].title == title) 
+        {
+            allMovies[i].haveWatched= !allMovies[i].haveWatched;
+            console.log("changing the status of the movie...");
+            //console.log(allMovies[i].title + ", " + "rating of " + allMovies[i].rating + ", havewatched: "+ allMovies[i].haveWatched);
+        }
+    }
 }
 
 
